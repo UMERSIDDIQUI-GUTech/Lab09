@@ -3,19 +3,52 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const goToProducts = () => {
-    navigate('/product/123'); 
-  };
+    const navigateToProduct = (productId) => {
+        navigate(`/product/${productId}`);
+    };
 
-  return (
-    <div>
-      <h1>Welcome to Our E-Commerce Platform</h1>
-      <p>Explore our wide range of products!</p>
-      <button onClick={goToProducts}>View Product Details</button>
-    </div>
-  );
+    return (
+        <div className="container home-page">
+            <h1>Welcome to Our E-Commerce Platform</h1>
+            <p>Discover high-quality products tailored just for you. Shop with ease!</p>
+
+            <div className="product-section">
+                {/* Camera Category */}
+                <div className="product-card">
+                    <img
+                        src="https://petapixel.com/assets/uploads/2023/09/PetaPixel-Background-copy-1-800x420.jpg"
+                        alt="Camera"
+                    />
+                    <h2>Explore Cameras</h2>
+                    <p>Find the best cameras to capture life's moments.</p>
+                    <button onClick={() => navigateToProduct(1)}>View Cameras</button>
+                </div>
+
+                {/* Toy Category */}
+                <div className="product-card">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYJotWtxzhzG0GrMuNfq4hOutFudo4Zm4-pw&s"
+                        alt="Toys"
+                    />
+                    <h2>Quality Toys</h2>
+                    <p>Shop our wide range of fun and safe toys for kids.</p>
+                    <button onClick={() => navigateToProduct(2)}>View Toys</button>
+                </div>
+                {/* Gadget Category */}
+                <div className="product-card">
+                    <img
+                        src="https://assets.aboutamazon.com/dims4/default/315d9b7/2147483647/strip/true/crop/1280x720+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Famazon-blogs-brightspot.s3.amazonaws.com%2F19%2F68%2Fb69f14d04488bb8d1bb700699f32%2Fcharger.jpg"
+                        alt="Gadgets"
+                    />
+                    <h2>Smart Gadgets</h2>
+                    <p>Upgrade your tech with the latest gadgets and accessories.</p>
+                    <button onClick={() => navigateToProduct(3)}>View Gadgets</button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default HomePage;
